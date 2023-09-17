@@ -1,0 +1,25 @@
+.carousel-inner > .carousel-item > img {
+    width:100%;
+    height:700px;
+  }
+
+  .carousel{
+    margin-bottom: 5px;
+    width:100%;
+    height:700px;
+  }
+
+.form-label
+{
+    color: white;
+}
+
+.newUserForm{
+    margin-top: 200px;
+}
+.register{
+  color: white;
+  margin-bottom: 40px;
+  text-align: center;
+}
+

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> 
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Home</title>
+</head>
+<body background="back.png">
+
+    <div>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary "data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/home}">Booker</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" th:href="@{/home}">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" th:href="@{/restaurant/getAll}">Restaurants</a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+
+
+    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="bi bi-box-arrow-in-right"></i> Anmelden</button>
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form th:action="@{/validateUser}" method="post">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 style="color: white;" class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+            
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            
+              <div class="mb-3">
+                <label style="color: white;" for="email" class="col-form-label">Email:</label>
+                <input type="text" class="form-control" name="email">
+              </div>
+
+              <div class="mb-3">
+                <label style="color: white;" for="password" class="col-form-label">Password:</label>
+                <input type="password" class="form-control" name="password">
+              </div>
+            
+          </div>
+          <div class="modal-footer">
+            
+            <button style="text-align: center;" type="submit" class="btn btn-primary">Login</button>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+          
+          </div>
+        </div>
+      </nav>
+
+      <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-inner ">
+          <div class="carousel-item active">
+            <img src="t1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="t2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="t3.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="container text-center">
+        <div class="row justify-content-md-center">          
+          <div class="col-sm-4">
+            <div class="card text-bg-dark mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Als Gast registrieren</h5>
+                <p class="card-text">Erstelle dir ein Konto um Tische in einem Restaurant für dich zu reservieren</p>
+                <a th:href="@{/newUser}" class="btn btn-primary"><i class="bi bi-person-plus"></i> Registrieren</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="card text-bg-dark mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Als Restaurant registrieren</h5>
+                <p class="card-text">Melde dein Restaurant an und erstelle Tische für deine Gäste</p>
+                <a th:href="@{/newRestaurant}" class="btn btn-primary"><i class="bi bi-clipboard2-plus"></i> Registrieren</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+
+      
+      
+
+    </div>
+
+        
+
+
+    
+</body>
+</html>    
