@@ -63,7 +63,7 @@
               <td th:text="${desk.seat}"></td>
               <td th:text="${desk.description}"></td>
               <td class="col-sm-2" >
-                <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#resModal" th:if="${desk.isRes == false}" th:style="${desk.isRes} == true ? 'background: red' : 'background: green'">Res Desk</button>
+                <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#resModal" th:if="${desk.isRes == false}" th:style="${desk.isRes} == true ? 'background: red' : 'background: green'">reserve</button>
                 <button type="button" class="btn btn-outline-dark" th:if="${desk.isRes == true}" th:style="${desk.isRes} == true ? 'background: red' : 'background: green'">reserved</button>
                 
                 <div class="modal fade" id="resModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

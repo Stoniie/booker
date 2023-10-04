@@ -62,8 +62,8 @@
           <tr th:each="desk:${desks}" class="text-center">
               <td th:text="${desk.seat}"></td>
               <td th:text="${desk.description}"></td>
-              <td th:style="${desk.isRes} == true ? 'background: red' : 'background: green'" class="col-sm-2" th:if="${desk.isRes == true}">open</td>
-              <td th:style="${desk.isRes} == true ? 'background: red' : 'background: green'" class="col-sm-2" th:if="${desk.isRes == false}">reserved</td>
+              <td th:style="${desk.isRes} == true ? 'background: red' : 'background: green'" class="col-sm-2" th:if="${desk.isRes == true}">reserved</td>
+              <td th:style="${desk.isRes} == true ? 'background: red' : 'background: green'" class="col-sm-2" th:if="${desk.isRes == false}">open</td>
             </tr>
 
           </tbody>
