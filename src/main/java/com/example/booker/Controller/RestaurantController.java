@@ -94,7 +94,41 @@ public class RestaurantController
     }
 
 
+    @PostMapping("/validateRestaurant")
+    public ModelAndView validateRestaurant(@ModelAttribute Restaurant logRestaurant)
+    {
+        ModelAndView mv = new ModelAndView();
+        Optional<Restaurant> optRestaurant = restaurantRepository.findByEmailAndPassword(logRestaurant.getEmail(),logRestaurant.getPassword());
 
+        if(optRestaurant.isPresent())
+        {
+            Restaurant restaurant = optRestaurant.get();
+            mv.addObject("restaurant", restaurant);
+            mv.addObject("desk", restaurant.getDesk());
+            mv.setViewName("redirect:/restaurant/" + restaurant.getResId());   
+        }
+        else
+        {
+            mv.setViewName("redirect:/home");
+        }
+        
+        return mv;
+    }
+
+    @GetMapping("/restaurant/{restaurantId}")
+    public ModelAndView restaurant(@PathVariable int restaurantId)
+    {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("RestaurantDesks");
+        Optional<Restaurant> optRestaurant = restaurantRepository.findById(restaurantId);
+        if(optRestaurant.isPresent())
+        {
+            Restaurant restaurant = optRestaurant.get();
+            mv.addObject("restaurant", restaurant);
+            mv.addObject("desks", restaurant.getDesk());
+        }
+        return mv;
+    }
 
     
 

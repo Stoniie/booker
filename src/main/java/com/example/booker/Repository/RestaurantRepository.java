@@ -10,5 +10,6 @@ import java.util.Optional;
 @Repository
 public interface RestaurantRepository extends CrudRepository<Restaurant,Integer>
 {
-    Optional<Restaurant> findByResSecret(String resSecret);;
+    Optional<Restaurant> findByResSecret(String resSecret);
+    Optional<Restaurant> findByEmailAndPassword(String email, String password);
 }

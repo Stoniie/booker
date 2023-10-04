@@ -26,6 +26,7 @@
 
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" th:href="@{/restaurant/getAll}">Restaurants</a>
+                
               </li>
               
               <li class="nav-item dropdown">
@@ -41,8 +42,39 @@
               </li>
             </ul>
 
+            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#loginResModal"><i class="bi bi-box-arrow-in-right"></i>Restaurant Login</button>
+            <div class="modal fade" id="loginResModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <form th:action="@{/validateRestaurant}" method="post">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 style="color: white;" class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                    
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    
+                      <div class="mb-3">
+                        <label style="color: white;" for="email" class="col-form-label">Email:</label>
+                        <input type="text" class="form-control" name="email">
+                      </div>
+        
+                      <div class="mb-3">
+                        <label style="color: white;" for="password" class="col-form-label">Password:</label>
+                        <input type="password" class="form-control" name="password">
+                      </div>
+                    
+                  </div>
+                  <div class="modal-footer">
+                    
+                    <button style="text-align: center;" type="submit" class="btn btn-primary">Login</button>
+                  </div>
+                </div>
+              </div>
+              </form>
+            </div>
 
-    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="bi bi-box-arrow-in-right"></i> Anmelden</button>
+    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="bi bi-box-arrow-in-right"></i>User Login</button>
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <form th:action="@{/validateUser}" method="post">
       <div class="modal-dialog">

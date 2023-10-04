@@ -54,8 +54,7 @@
             <tr class="text-center">
               <th>Seat</th>
               <th>Description</th>
-              <th>Availability</th>
-              <th>Res</th>
+              <th class="col-sm-2">Res</th>
             </tr>
           </thead>
           <tbody class="table-group-divider">
@@ -63,9 +62,10 @@
           <tr th:each="desk:${desks}" class="text-center">
               <td th:text="${desk.seat}"></td>
               <td th:text="${desk.description}"></td>
-              <td th:text="${desk.isRes}"></td>
-              <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#resModal">Res Desk</button>
+              <td class="col-sm-2" >
+                <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#resModal" th:if="${desk.isRes == false}" th:style="${desk.isRes} == true ? 'background: red' : 'background: green'">Res Desk</button>
+                <button type="button" class="btn btn-outline-dark" th:if="${desk.isRes == true}" th:style="${desk.isRes} == true ? 'background: red' : 'background: green'">reserved</button>
+                
                 <div class="modal fade" id="resModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <form th:action="@{/saveDeskRes/{deskId}(deskId=${desk.deskId})}" method="post">
                   <div class="modal-dialog">
@@ -98,34 +98,6 @@
 
           </tbody>
         </table>
-
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Add New Desk</button>
-        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <form th:action="@{/saveNewDesk/{resId}(resId=${restaurant.resId})}" method="post">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">New Desk</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-            
-              <div class="mb-3">
-                <label for="seat" class="col-form-label">Seat:</label>
-                <input type="text" class="form-control" id="seat" name="seat">
-              </div>
-            
-              </div>
-              
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save</button>
-          </div>
-        </div>
-      </div>
-      </form>
-    </div>
-
 
     </div> 
     </div>  

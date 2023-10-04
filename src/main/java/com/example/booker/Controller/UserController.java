@@ -80,15 +80,13 @@ public class UserController
     {
         ModelAndView mv = new ModelAndView();
         Optional<User> optUser = userRepository.findByEmailAndPassword(logUser.getEmail(),logUser.getPassword());
-        System.out.println("USER => "+optUser.get().getEmail());
-        System.out.println("USER => "+optUser.get().getPassword());
+
         if(optUser.isPresent())
         {
             User user = optUser.get();
             mv.addObject("user", user);
             mv.addObject("desk", user.getDesk());
-            mv.setViewName("redirect:/user/"+user.getUserId());
-
+            mv.setViewName("redirect:/user/" + user.getUserId());   
         }
         else
         {

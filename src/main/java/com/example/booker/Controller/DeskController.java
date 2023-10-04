@@ -64,11 +64,11 @@ public class DeskController {
             }
         if(!err)
         {
-            mv.setViewName("redirect:/"+optRes.get().getResId()+"/deskList");
+            mv.setViewName("redirect:/restaurant/" + optRes.get().getResId());
         }
         else
         {
-            mv.setViewName("redirect:/restaurant/getAll");
+            mv.setViewName("redirect:/home");
         }
 
         }
